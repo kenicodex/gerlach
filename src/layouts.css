@@ -1,0 +1,20 @@
+._nav{ height: 104px;}
+.sect{ height: 160px;}
+.lh{ height: 854px;}
+.rh{ height: 854px;}
+.lm{ height: 992px;}
+.body1{  height: 670px;}
+.body2{ height: 773px;}
+.body3{ height: 572px;}
+.footer1{ height: 300px;}
+.footer2{ height: auto; border-top: 33px solid #ffffff;}
+/* .gridcont div {border: 1px solid gray;} */
+.gridcont{
+    display: flex;
+    flex-direction: column;
+    width: 100vw; max-width: 100%;
+    /* background-color: blueviolet; */
+}
+.body1 svg {
+    margin-right: 10px;
+}
