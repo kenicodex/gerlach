@@ -13,20 +13,20 @@ function App(params) {
 	{ word: "Dependable & Responsive", person: "Donald Trump", position: "Developer", image: process.env.PUBLIC_URL + "/images/profile.jpg", text: "Gerlad is always looking to provide you with the services and products that will help you get the most out of your online experience while buying." }]
 	return (
 		<Box className="gridcont" sx={{ mx: "0" }} >
-			<Box sx={{ width: 940, height: 780, position: "fixed", top: "0", left: "500px", zIndex: "-100" }}>
+			<Box sx={{ width: 940, height: 780, position: "absolute", top: "0", left: "408px", zIndex: "-100" }}>
 				<img src={process.env.PUBLIC_URL + "/images/Rectangle_4.jpg"} alt="" srcset="" /></Box>
 			<Box sx={{ width: 119, height: 119, position: "absolute", top: "171px", left: "1200px", zIndex: "-10" }}>
 				<img src={process.env.PUBLIC_URL + "/images/image_3.jpg"} alt="" srcset="" /></Box>
 			<Box className="_nav" sx={{ px: { xs: "10px", lg: "100px" }, mt: "42px", display: "flex", flexDirection: "row" }}>
 				<Box><img src={process.env.PUBLIC_URL + "/images/frame_20.jpg"} alt="" /></Box>
 				<Box sx={{ width: 940, ml: "295px", display: "inline-flex", flexDirection: "row", justifyContent: "space-between" }}>
-					<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="24.5px" fontWeight="400" sx={{ mt: "14px", color: "#797979", }}>
-						Home</Typography>
-					<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="24.5px" fontWeight="400" sx={{ mt: "14px", color: "#797979", }}>
+					<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="24.5px" fontWeight="400" sx={{textAlign:"center", mt: "14px",  color: "#797979", width:'67px', }} >
+						Home  <Box sx={{height:'5px', width:"100%",borderRadius:"5px", backgroundColor:"#085155"}}></Box></Typography>
+					<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="24.5px" fontWeight="400" sx={{textAlign:"center", mt: "14px", color: "#797979", }}>
 						About Us</Typography>
-					<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="24.5px" fontWeight="400" sx={{ mt: "14px", color: "#797979", }}>
+					<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="24.5px" fontWeight="400" sx={{textAlign:"center", mt: "14px", color: "#797979", }}>
 						Service</Typography>
-					<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="24.5px" fontWeight="400" sx={{ mt: "14px", color: "#797979", }}>
+					<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="24.5px" fontWeight="400" sx={{textAlign:"center", mt: "14px", color: "#797979", }}>
 						Testimonial</Typography>
 					<Button sx={{ backgroundColor: "#085155", width: "151px", height: "53px", color: "#FFFFFF", fontSize: "18px", fontFamily: "open Sans" }}>Contact Us</Button>
 				</Box>
@@ -188,7 +188,7 @@ function App(params) {
 				<Typography fontSize={{ xs: "", lg: "36px" }} fontFamily="martel" lineHeight="50px" fontWeight="800" sx={{ mt: "16px", color: "#085155", width: { xs: "70%", lg: 525 } }}>Our Clients Speak</Typography>
 				<Box sx={{ display: "flex", flexDirection: { xs: "column", lg: "row" }, gap: "80px", mx: { sm: "", lg: "100px" }, pt: "24px", textAlign: "center" }}>
 					{speakers.map(({ word, person, position, image, text }) => {
-						return (<Box sx={{ width: { xs: "100%", lg: "358px" }, height: "395.9px", }}>
+						return (<Box sx={{ width: { xs: "100%", lg: "358px" }, height: "395.9px", pb:'19px'}}>
 							<Box sx={{ height: 229.76, borderRadius: "8px", pt: "1px", px: "31px", pb: "19px", boxShadow: "3" }}>
 								<svg width="31.86" height="27" viewBox="0 0 33 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path fill-rule="evenodd" clip-rule="evenodd" d="M32.4939 4.78821C27.7221 7.13095 25.3362 9.88364 25.3362 13.0463C27.3701 13.2806 29.052 14.1103 30.3818 15.5355C31.7117 16.9607 32.3766 18.6103 32.3766 20.4845C32.3766 22.4759 31.7312 24.1548 30.4405 25.5214C29.1497 26.888 27.5266 27.5713 25.5709 27.5713C23.3805 27.5713 21.4835 26.683 19.8799 24.9064C18.2762 23.1298 17.4744 20.9726 17.4744 18.4346C17.4744 10.8207 21.7377 4.86632 30.2645 0.571289L32.4939 4.78821ZM15.6538 4.78821C10.8429 7.13095 8.43741 9.88364 8.43741 13.0463C10.5104 13.2806 12.2118 14.1103 13.5417 15.5355C14.8716 16.9607 15.5365 18.6103 15.5365 20.4845C15.5365 22.4759 14.8814 24.1548 13.571 25.5214C12.2607 26.888 10.6278 27.5713 8.67209 27.5713C6.48172 27.5713 4.59452 26.683 3.01042 24.9064C1.42632 23.1298 0.634277 20.9726 0.634277 18.4346C0.634277 10.8207 4.87804 4.86632 13.3657 0.571289L15.6538 4.78821Z" fill="#085155" />
@@ -229,7 +229,7 @@ function App(params) {
 								<path fill-rule="evenodd" clip-rule="evenodd" d="M147 41.2133C147 39.6911 145.771 38.4473 144.251 38.4473C142.729 38.4473 141.485 39.6902 141.5 41.2133C141.5 41.5746 141.571 41.9324 141.709 42.2662C141.847 42.6 142.05 42.9033 142.305 43.1587C142.561 43.4141 142.864 43.6165 143.198 43.7545C143.532 43.8924 143.89 43.9632 144.251 43.9626C144.612 43.9629 144.97 43.8921 145.303 43.754C145.637 43.616 145.94 43.4135 146.196 43.1581C146.451 42.9027 146.654 42.5995 146.792 42.2658C146.93 41.9321 147.001 41.5745 147 41.2133ZM114.844 5.34048C114.714 5.53119 114.582 5.69178 114.493 5.76455C114.23 5.99874 113.938 6.32076 114.303 6.72977C114.478 6.93469 114.684 7.06684 114.844 7.18394V8.60249L122.569 0L134.419 12.5085C134.184 13.6787 133.628 15.4201 132.326 16.4589C130.233 18.1418 129.43 19.2383 129.224 19.7067C129.224 19.7067 130.526 19.0342 131.785 18.1418C132.692 17.4977 134.461 15.2302 136.627 14.8354L140.197 18.6101C133.247 26.173 125.054 32.3474 118.94 39.8374C125.202 34.9954 131.756 30.3132 138.104 25.2663C138.104 25.2663 139.436 23.9933 139.816 25.6611C140.212 27.3138 139.055 29.6993 138.777 30.0205C138.5 30.3567 136.028 32.6685 135.692 32.7271C135.37 32.7698 134.813 33.7642 135.749 33.3268C136.686 32.8877 138.281 31.7895 138.281 31.7895C138.281 31.7895 139.597 30.6929 139.934 32.3465C140.256 34.0001 139.217 36.7636 139.217 37.0271C139.217 37.3064 138.837 38.5786 138.398 39.0755C137.945 39.574 137.565 40.5685 137.565 40.5685C137.565 40.5685 137.462 41.1238 137.945 40.6253C138.442 40.1285 138.778 39.7923 139.217 39.7923C139.657 39.7923 139.714 40.3033 139.714 40.6839C139.714 41.0644 139.817 41.7963 139.277 42.5139C138.72 43.2307 137.842 43.9467 137.345 43.8305C136.847 43.7276 136.629 42.836 137.066 42.1769C137.066 42.1769 136.189 42.3366 136.13 41.7378C136.13 41.7378 134.375 43.4499 133.381 43.3913C132.386 43.3328 132.445 43.3328 132.445 43.0693C132.445 43.0693 130.908 44.1667 130.308 43.5084C129.694 42.8351 131.23 41.5629 131.23 41.5629C131.23 41.5629 131.684 40.8461 131.07 41.1824C130.469 41.5186 127.997 42.8928 127.938 43.332C127.938 43.332 127.764 40.5676 125.131 40.5676C122.482 40.5676 122.263 42.8351 122.38 43.4491C122.38 43.4491 121.984 44.0044 121.444 43.8865C120.888 43.7853 121.005 42.9506 119.952 43.112C119.952 43.112 120.289 42.5717 120.611 42.5123C120.611 42.5123 118.576 41.7955 117.918 41.0636C117.26 40.2013 114.948 37.9781 111.583 38.035C108.116 38.1964 107.166 39.5137 106.186 40.2155V25.646H99.5581L107.559 16.7366V1.94716H114.845V5.34048H114.844Z" fill="white" />
 							</svg>
 						</Box>
-						<Typography fontSize={{ xs: "", lg: "15px" }} fontFamily="open sans" lineHeight="25px" fontWeight="400" sx={{ color: "#F0F0F0", pt: "10px" }}
+						<Typography component={'div'} fontSize={{ xs: "", lg: "15px" }} fontFamily="open sans" lineHeight="25px" fontWeight="400" sx={{display:"block", color: "#F0F0F0", mt: "20px" }}
 						>Gerlach is a professional real estate website, dedicated to letting you find your dream house or apartment. It allows you to post your properties and view real estate listings from other agents in your area.</Typography>
 						<Box sx={{ mt: "14px", display: "flex", flexDirection: "row", gap: { xs: "6px", lg: "20px" } }}>
 							<svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -249,7 +249,7 @@ function App(params) {
 					<Box sx={{ ml: { xs: "0", lg: "56px" } }}>
 						<Typography fontSize={{ xs: "", lg: "25px" }} fontFamily="open sans" lineHeight="34px" fontWeight="700" sx={{ color: "#F0F0F0", }}>Quick Links</Typography>
 						<Typography fontSize={{ xs: "", lg: "20px" }} fontFamily="open sans" lineHeight="27.24px" fontWeight="400" sx={{ mt: "25px", color: "#F0F0F0", }}>
-							Home</Typography>
+							Home </Typography>
 						<Typography fontSize={{ xs: "", lg: "20px" }} fontFamily="open sans" lineHeight="27.24px" fontWeight="400" sx={{ mt: "20px", color: "#F0F0F0", }}>
 							About Us</Typography>
 						<Typography fontSize={{ xs: "", lg: "20px" }} fontFamily="open sans" lineHeight="27.24px" fontWeight="400" sx={{ mt: "20px", color: "#F0F0F0", }}>
