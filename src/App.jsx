@@ -11,6 +11,12 @@ function App(params) {
 	{ word: "Incredible Experience", person: "Soft Williams", position: "Developer", image: process.env.PUBLIC_URL + "/images/profile.jpg", text: "I would like to thank you for your help and support in the sale of my property. I know there was a lot of stress involved in selling our home and I am so glad that you were able to take care of everything." },
 	{ word: "Dependable & Responsive", person: "Donald Trump", position: "Developer", image: process.env.PUBLIC_URL + "/images/profile.jpg", text: "Gerlad is always looking to provide you with the services and products that will help you get the most out of your online experience while buying." }]
 	const theme = createTheme({ palette: { gerlach: { main: '#085155' } } })
+	const btnhover = {
+		"&:hover": {
+			color: "white",
+			backgroundColor: "#4f999f",
+		}
+	}
 	return (
 		<ThemeProvider theme={theme}>
 			<Box className="gridcont" sx={{ mx: "0" }} >
@@ -29,7 +35,7 @@ function App(params) {
 							Service</Typography>
 						<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="24.5px" fontWeight="400" sx={{ textAlign: "center", mt: "14px", color: "#797979", }}>
 							Testimonial</Typography>
-						<Button variant='contained' color={'gerlach'} sx={{ width: "151px", height: "53px", color: "#FFFFFF", fontSize: "18px", fontFamily: "open Sans" }}>Contact Us</Button>
+						<Button variant='contained' color={'gerlach'} sx={{ width: "151px", height: "53px", color: "#FFFFFF", fontSize: "18px", fontFamily: "open Sans", ...btnhover }}>Contact Us</Button>
 					</Box>
 				</Box>
 				{/* Find Real Estate That Suits You */}
@@ -63,9 +69,14 @@ function App(params) {
 									</FormControl>
 								)
 							})}
-							<Button  variant='contained' color={'gerlach'} sx={{ height: 53, width: 218.5, borderRadius: "6px",  }}>
-								<Typography fontSize="16px" fontWeight="600" lineHeight="24px" color="#FFFFFF" fontFamily="Open Sans">
-									Search</Typography>
+							<Button variant='contained' color={'gerlach'} sx={{
+								height: 53, width: 218.5, borderRadius: "6px", fontSize: "16px",
+								fontWeight: "600", lineHeight: "24px", color: "#FFFFFF", fontFamily: "open Sans", ...btnhover
+							}}>
+
+								{/* <Typography fontSize="16px" fontWeight="600" lineHeight="24px" color="#FFFFFF" fontFamily="Open Sans" > */}
+								Search
+								{/* </Typography> */}
 							</Button>
 						</Box>
 					</Box>
@@ -119,7 +130,7 @@ function App(params) {
 								</Box>)
 							})}
 						</Box>
-						<Button variant='contained' color={'gerlach'} sx={{ height: 53, width: 157, borderRadius: "8px", background: "#085155", mt: "50px", color: "white", fontSize: "17px", fontWeight: "600", fontFamily: "open sans" }}>
+						<Button variant='contained' color={'gerlach'} sx={{ height: 53, width: 157, borderRadius: "8px", background: "#085155", mt: "50px", color: "white", fontSize: "17px", fontWeight: "600", fontFamily: "open sans", ...btnhover }}>
 							Learn More
 						</Button>
 					</Box>
@@ -155,7 +166,7 @@ function App(params) {
 										<div><svg width="18" height="23" viewBox="0 0 18 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 21H10M9 27H17M1 8C1 6.14348 1.7375 4.36301 3.05025 3.05025C4.36301 1.7375 6.14349 1 8 1C9.85652 1 11.637 1.7375 12.9497 3.05025C14.2625 4.36301 15 6.14348 15 8C15.0007 9.12707 14.7281 10.2375 14.2056 11.2362C13.6831 12.2348 12.9263 13.0919 12 13.734L11.458 16.3C11.3862 16.773 11.1473 17.2046 10.7846 17.5165C10.4219 17.8284 9.95938 17.9999 9.481 18H6.519C6.04062 17.9999 5.57811 17.8284 5.21539 17.5165C4.85267 17.2046 4.61376 16.773 4.542 16.3L4 13.745C3.07341 13.1006 2.31657 12.2415 1.79415 11.2411C1.27173 10.2407 0.999256 9.12862 1 8V8Z" stroke="#797979" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
 											{light}</div>
 									</Box>
-									<Box sx={{ flexDirection: "row", display: "flex", gap: "62px" }}><Button  variant='contained' color={'gerlach'} sx={{ width: 141, backgroundColor: "#085155", mt: "18px", color: "#FFFFFF", fontSize: "16px", borderRadius: "8px", p: { xs: "5px 15px", p: "10px 31px" }, fontFamily: "open sans", textTransform: "capitalize" }} >Book Now</Button>
+									<Box sx={{ flexDirection: "row", display: "flex", gap: "62px" }}><Button variant='contained' color={'gerlach'} sx={{ width: 141, backgroundColor: "#085155", mt: "18px", color: "#FFFFFF", fontSize: "16px", borderRadius: "8px", p: { xs: "5px 15px", p: "10px 31px" }, fontFamily: "open sans", textTransform: "capitalize",  ...btnhover }} >Book Now</Button>
 										<Typography fontSize="25px" fontFamily="open sans" lineHeight="34.05px" color="#085155" fontWeight="700" sx={{ mt: "15px", clear: "right" }}>N{price}</Typography></Box>
 								</Box>
 							</Box>)
@@ -216,7 +227,7 @@ function App(params) {
 					<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="32px" fontWeight="400" sx={{ mt: "8px", color: "rgba(8, 81, 85, .5)", width: 594, mx: "auto" }}>Subscribe with Email and loads of interesting news will be sent to you on a daily basis.</Typography>
 					<FormControl sx={{ display: "flex", flexDirection: "row", mt: "16px", justifyContent: "center", height: "65px", }} className='border-none'>
 						<Input placeholder="Your email here" disableUnderline sx={{ border: "1px white", pl: "24px", borderRadius: "20px 0 0 20px", height: "65px", width: { xs: "60%", lg: 414 }, backgroundColor: "white", fontSize: "16px" }} > </Input>
-						<Button variant='contained' color={'gerlach'} sx={{ borderRadius: "0 20px 20px 0", py: "20.5px", px: "52px", width: { xs: "60%", lg: 180 }, height: "65px", backgroundColor: "#085155", fontSize: "16px", color: "white" }}>Subscribe</Button>
+						<Button variant='contained' color={'gerlach'} sx={{ borderRadius: "0 20px 20px 0", py: "20.5px", px: "52px", width: { xs: "60%", lg: 180 }, height: "65px", backgroundColor: "#085155", fontSize: "16px", color: "white",  ...btnhover }}>Subscribe</Button>
 					</FormControl>
 				</Box>
 				<Box className='footer2' sx={{ backgroundColor: "#085155", pt: "60px" }}> f2
