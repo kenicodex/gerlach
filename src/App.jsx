@@ -16,14 +16,14 @@ function App(params) {
 					<img src={process.env.PUBLIC_URL + "/images/image_3.jpg"} alt="" srcset="" /></Box>
 				<Box className="_nav" sx={{ px: { xs: "10px", lg: "100px" }, pt: "42px", display: "flex", flexDirection: "row" }}>
 					<Box><img src={process.env.PUBLIC_URL + "/images/frame_20.jpg"} alt="" /></Box>
-					<Box sx={{ width: 940, ml: "295px", display: "inline-flex", flexDirection: "row", justifyContent: "space-between" }}>
+					<Box sx={{ width: 752, ml: "295px", display: "inline-flex", flexDirection: "row", gap:"68px" }}>
 						{links.map(({ section, id, opacity }, i) => {
 							return (<Typography component={'a'} href={'#' + id} fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="24.5px" fontWeight="400"
 								sx={{ textAlign: "right", mt: "14px", color: "#797979", width: 'auto' }}
 								onMouseMoveCapture={() => { $('#' + i + id).addClass('clickeditem') }} onMouseOut={() => { $('#' + i + id).removeClass('clickeditem') }}>
 								<Typography sx={{ pl: "12.5%"}}>{section} </Typography> <Box component={'div'} sx={{ height: '5px', width: "125%", borderRadius: "5px",mx:'auto' }} id={i + id} ></Box></Typography>)
 						})}
-						<Button variant='contained' color={'gerlach'} sx={{ width: "151px", height: "53px", color: "#FFFFFF", fontSize: "18px", fontFamily: "open Sans", ...btnhover }}>Contact Us</Button>
+						<Button variant='contained' color={'gerlach'} sx={{ width: "151px", height: "53px", color: "#FFFFFF", fontSize: "18px", fontFamily: "open Sans",ml:"32px", ...btnhover }}>Contact Us</Button>
 					</Box>
 				</Box>
 				{/* Find Real Estate That Suits You */}
