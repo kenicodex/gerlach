@@ -1,7 +1,30 @@
-._nav {
-    height: 104px;
+* {
+    transition: ease-in 0.5s;
+    font-family: open sans;
 }
 
+._nav {
+    height: 104px;
+    /* position: sticky; */
+    top: 0;
+}
+
+.clickeditem {
+    background-color: #085155;
+}
+
+._nav a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+._nav a:hover {
+    color: #085155;
+}
+
+/* ._nav a:active {
+    color: #085155;
+} */
 .sect {
     height: 160px;
 }

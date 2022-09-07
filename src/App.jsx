@@ -1,22 +1,12 @@
 import React from 'react'
 import { Box, Button, createTheme, FormControl, Input, InputLabel, MenuItem, Select, ThemeProvider, Typography } from '@mui/material'
 import './layouts.css'
+import { fyh, number, residences, speakers, links } from './assets'
+import $ from 'jquery'
+
 function App(params) {
-	const fyh = [{ name: "location" }, { name: 'category' }, { name: 'Product Type' }]
-	const residences = [{ name: "Kolapo Ishola Estate", location: "Km 10, kolapo ishola estate, Akobo", rooms: "4", toilet: "4", price: "300,000", light: "24 Hrs Light" },
-	{ name: "Kolapo Ishola Estate", location: "Km 10, kolapo ishola estate, Akobo", rooms: "4", toilet: "4", price: "300,000", light: "24 Hrs Light" },
-	{ name: "Kolapo Ishola Estate", location: "Km 10, kolapo ishola estate, Akobo", rooms: "4", toilet: "4", price: "300,000", light: "24 Hrs Light" },]
-	const number = [{ numbers: "150+", text: "Premium Products" }, { numbers: "100+", text: "Award Received" }, { numbers: "1M+", text: "Happy Client" }]
-	const speakers = [{ word: "Professional Partner", person: "Nikky Jane", position: "UX Designer", image: process.env.PUBLIC_URL + "/images/profile.jpg", text: " I have been working with Gerlard for several years, and they are the best real estate company. Everyone is professional and friendly, the transactions are seamless, and they make everything easy on me." },
-	{ word: "Incredible Experience", person: "Soft Williams", position: "Developer", image: process.env.PUBLIC_URL + "/images/profile.jpg", text: "I would like to thank you for your help and support in the sale of my property. I know there was a lot of stress involved in selling our home and I am so glad that you were able to take care of everything." },
-	{ word: "Dependable & Responsive", person: "Donald Trump", position: "Developer", image: process.env.PUBLIC_URL + "/images/profile.jpg", text: "Gerlad is always looking to provide you with the services and products that will help you get the most out of your online experience while buying." }]
 	const theme = createTheme({ palette: { gerlach: { main: '#085155' } } })
-	const btnhover = {
-		"&:hover": {
-			color: "white",
-			backgroundColor: "#4f999f",
-		}
-	}
+	const btnhover = { "&:hover": { color: "white", backgroundColor: "#4f999f" } }
 	return (
 		<ThemeProvider theme={theme}>
 			<Box className="gridcont" sx={{ mx: "0" }} >
@@ -24,22 +14,20 @@ function App(params) {
 					<img src={process.env.PUBLIC_URL + "/images/Rectangle_4.jpg"} alt="" srcset="" /></Box>
 				<Box sx={{ width: 119, height: 119, position: "absolute", top: "171px", left: "1200px", zIndex: "-10" }}>
 					<img src={process.env.PUBLIC_URL + "/images/image_3.jpg"} alt="" srcset="" /></Box>
-				<Box className="_nav" sx={{ px: { xs: "10px", lg: "100px" }, mt: "42px", display: "flex", flexDirection: "row" }}>
+				<Box className="_nav" sx={{ px: { xs: "10px", lg: "100px" }, pt: "42px", display: "flex", flexDirection: "row" }}>
 					<Box><img src={process.env.PUBLIC_URL + "/images/frame_20.jpg"} alt="" /></Box>
 					<Box sx={{ width: 940, ml: "295px", display: "inline-flex", flexDirection: "row", justifyContent: "space-between" }}>
-						<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="24.5px" fontWeight="400" sx={{ textAlign: "center", mt: "14px", color: "#797979", width: '67px', }} >
-							Home  <Box sx={{ height: '5px', width: "100%", borderRadius: "5px", backgroundColor: "#085155" }}></Box></Typography>
-						<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="24.5px" fontWeight="400" sx={{ textAlign: "center", mt: "14px", color: "#797979", }}>
-							About Us</Typography>
-						<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="24.5px" fontWeight="400" sx={{ textAlign: "center", mt: "14px", color: "#797979", }}>
-							Service</Typography>
-						<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="24.5px" fontWeight="400" sx={{ textAlign: "center", mt: "14px", color: "#797979", }}>
-							Testimonial</Typography>
+						{links.map(({ section, id, opacity }, i) => {
+							return (<Typography component={'a'} href={'#' + id} fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="24.5px" fontWeight="400"
+								sx={{ textAlign: "right", mt: "14px", color: "#797979", width: 'auto' }}
+								onMouseMoveCapture={() => { $('#' + i + id).addClass('clickeditem') }} onMouseOut={() => { $('#' + i + id).removeClass('clickeditem') }}>
+								<Typography sx={{ pl: "12.5%"}}>{section} </Typography> <Box component={'div'} sx={{ height: '5px', width: "125%", borderRadius: "5px",mx:'auto' }} id={i + id} ></Box></Typography>)
+						})}
 						<Button variant='contained' color={'gerlach'} sx={{ width: "151px", height: "53px", color: "#FFFFFF", fontSize: "18px", fontFamily: "open Sans", ...btnhover }}>Contact Us</Button>
 					</Box>
 				</Box>
 				{/* Find Real Estate That Suits You */}
-				<Box className="lh" sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row', lg: 'row' } }}>
+				<Box className="lh" sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row', lg: 'row' } }} id="home">
 					<Box sx={{ width: { xs: "100%", md: 540, lg: 540 }, height: 306, ml: "100px", mt: '197px' }}>
 						<Typography fontSize="50px" fontFamily="martel" fontWeight="800" color="#085155">
 							Find Real Estate That Suits You
@@ -98,11 +86,11 @@ function App(params) {
 					</svg></div>
 				</Box>
 				{/* Making Real Estate Simple & Transparent */}
-				<Box className="lm" sx={{ flexDirection: "row", display: "flex", }}>
+				<Box className="lm" sx={{ flexDirection: "row", display: "flex", }} >
 					<Box sx={{ ml: "100px", mt: "130px", height: 732, width: 589, backgroundImage: "black" }}>
 						<img src={process.env.PUBLIC_URL + "/images/Rectangle_5.jpg"} alt="loading" />
 					</Box>
-					<Box sx={{ mt: "165px", height: 648, width: 751, backgroundColor: "#F7F7F7", pl: { xs: "4px", lg: "41px" } }}>
+					<Box id="about" sx={{ mt: "165px", height: 648, width: 751, backgroundColor: "#F7F7F7", pl: { xs: "4px", lg: "41px" } }}>
 						<Typography sx={{ fontFamily: "Open Sans", fontSize: "18px", fontWeight: "600", lineHeight: "19px", letterSpacing: "0em", textAlign: "left", m: "16px 0 0 0", color: "#3D3D3D", }}>
 							<svg width="50" height="4" viewBox="0 0 50 4" fill="none" xmlns="http://www.w3.org/2000/svg"><line y1="2" x2="50" y2="2" stroke="#3D3D3D" stroke-width="3" /></svg>
 							About</Typography>
@@ -166,7 +154,7 @@ function App(params) {
 										<div><svg width="18" height="23" viewBox="0 0 18 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 21H10M9 27H17M1 8C1 6.14348 1.7375 4.36301 3.05025 3.05025C4.36301 1.7375 6.14349 1 8 1C9.85652 1 11.637 1.7375 12.9497 3.05025C14.2625 4.36301 15 6.14348 15 8C15.0007 9.12707 14.7281 10.2375 14.2056 11.2362C13.6831 12.2348 12.9263 13.0919 12 13.734L11.458 16.3C11.3862 16.773 11.1473 17.2046 10.7846 17.5165C10.4219 17.8284 9.95938 17.9999 9.481 18H6.519C6.04062 17.9999 5.57811 17.8284 5.21539 17.5165C4.85267 17.2046 4.61376 16.773 4.542 16.3L4 13.745C3.07341 13.1006 2.31657 12.2415 1.79415 11.2411C1.27173 10.2407 0.999256 9.12862 1 8V8Z" stroke="#797979" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
 											{light}</div>
 									</Box>
-									<Box sx={{ flexDirection: "row", display: "flex", gap: "62px" }}><Button variant='contained' color={'gerlach'} sx={{ width: 141, backgroundColor: "#085155", mt: "18px", color: "#FFFFFF", fontSize: "16px", borderRadius: "8px", p: { xs: "5px 15px", p: "10px 31px" }, fontFamily: "open sans", textTransform: "capitalize",  ...btnhover }} >Book Now</Button>
+									<Box sx={{ flexDirection: "row", display: "flex", gap: "62px" }}><Button variant='contained' color={'gerlach'} sx={{ width: 141, backgroundColor: "#085155", mt: "18px", color: "#FFFFFF", fontSize: "16px", borderRadius: "8px", p: { xs: "5px 15px", p: "10px 31px" }, fontFamily: "open sans", textTransform: "capitalize", ...btnhover }} >Book Now</Button>
 										<Typography fontSize="25px" fontFamily="open sans" lineHeight="34.05px" color="#085155" fontWeight="700" sx={{ mt: "15px", clear: "right" }}>N{price}</Typography></Box>
 								</Box>
 							</Box>)
@@ -174,7 +162,7 @@ function App(params) {
 					</Box>
 				</Box>
 				{/* What Gerlard Real Estate Has to Offer */}
-				<Box className='body2' sx={{ display: "flex", flexDirection: { xs: "column", lg: "row" } }}>2
+				<Box className='body2' sx={{ display: "flex", flexDirection: { xs: "column", lg: "row" } }} id="services">
 					<Box sx={{ height: 643, width: { xs: "100%", lg: 517 }, m: "0 0 0 106px" }}>
 						<img src={process.env.PUBLIC_URL + "/images/Rectangle_6.jpg"} alt="loading" />
 					</Box>
@@ -193,21 +181,21 @@ function App(params) {
 					</Box>
 				</Box>
 				{/* Our Clients Speak */}
-				<Box className='body3' sx={{ pl: { xs: "2px", lg: "100px" } }}>
+				<Box className='body3' sx={{ pl: { xs: "2px", lg: "100px" } }} id="testimonial">
 					<Typography fontSize="18px" fontFamily="open sans" lineHeight="18px" fontWeight="400" sx={{ mt: "16px", color: "#3D3D3D", width: 525 }}>
 						<svg width="50" height="3" viewBox="0 0 50 3" fill="#3D3D3D" xmlns="http://www.w3.org/2000/svg"><line y1="1.5" x2="50" y2="1.5" stroke="#3D3D3D" stroke-width="3" /></svg>
 						Testimonial</Typography>
 					<Typography fontSize={{ xs: "", lg: "36px" }} fontFamily="martel" lineHeight="50px" fontWeight="800" sx={{ mt: "16px", color: "#085155", width: { xs: "70%", lg: 525 } }}>Our Clients Speak</Typography>
 					<Box sx={{ display: "flex", flexDirection: { xs: "column", lg: "row" }, gap: "80px", mx: { sm: "", lg: "100px" }, pt: "24px", textAlign: "center" }}>
 						{speakers.map(({ word, person, position, image, text }) => {
-							return (<Box sx={{ width: { xs: "100%", lg: "358px" }, height: "395.9px", pb: '19px' }}>
-								<Box sx={{ height: 229.76, borderRadius: "8px", pt: "1px", px: "31px", pb: "19px", boxShadow: "3" }}>
-									<svg width="31.86" height="27" viewBox="0 0 33 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+							return (<Box sx={{ width: { xs: "100%", lg: "358px" }, height: "395.9px", }}>
+								<Box sx={{ height: 229.76, borderRadius: "8px", pt: "6px", px: "31px", pb: "19px", boxShadow: "3" }}>
+									<svg width="31.86" height="27" viewBox="0 0 33 28" fill="#085155" xmlns="http://www.w3.org/2000/svg" style={{opacity:.5}}>
 										<path fill-rule="evenodd" clip-rule="evenodd" d="M32.4939 4.78821C27.7221 7.13095 25.3362 9.88364 25.3362 13.0463C27.3701 13.2806 29.052 14.1103 30.3818 15.5355C31.7117 16.9607 32.3766 18.6103 32.3766 20.4845C32.3766 22.4759 31.7312 24.1548 30.4405 25.5214C29.1497 26.888 27.5266 27.5713 25.5709 27.5713C23.3805 27.5713 21.4835 26.683 19.8799 24.9064C18.2762 23.1298 17.4744 20.9726 17.4744 18.4346C17.4744 10.8207 21.7377 4.86632 30.2645 0.571289L32.4939 4.78821ZM15.6538 4.78821C10.8429 7.13095 8.43741 9.88364 8.43741 13.0463C10.5104 13.2806 12.2118 14.1103 13.5417 15.5355C14.8716 16.9607 15.5365 18.6103 15.5365 20.4845C15.5365 22.4759 14.8814 24.1548 13.571 25.5214C12.2607 26.888 10.6278 27.5713 8.67209 27.5713C6.48172 27.5713 4.59452 26.683 3.01042 24.9064C1.42632 23.1298 0.634277 20.9726 0.634277 18.4346C0.634277 10.8207 4.87804 4.86632 13.3657 0.571289L15.6538 4.78821Z" fill="#085155" />
 									</svg>
-									<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="27px" fontWeight="400" sx={{ mt: "16.4px", color: "#3D3D3D", }}
+									<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="27px" fontWeight="400" sx={{ mt: "8px", color: "#3D3D3D", }}
 									>{word}</Typography>
-									<Typography fontSize={{ xs: "", lg: "14px" }} fontFamily="open sans" lineHeight="24px" fontWeight="400" sx={{ mt: "16.4px", color: "#797979", }}
+									<Typography fontSize={{ xs: "", lg: "14px" }} fontFamily="open sans" lineHeight="24px" fontWeight="400" sx={{ mt: "16.4px", color: "#797979", mb: '19px' }}
 									> {text}</Typography>
 								</Box>
 								<Box sx={{ borderRadius: "100%", height: 60, width: 60, mt: "32.11px", mx: "auto" }}>
@@ -215,7 +203,7 @@ function App(params) {
 								</Box>
 								<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="28px" fontWeight="700" sx={{ mt: "16px", color: "#3D3D3D", }}>
 									{person}</Typography>
-								<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="28px" fontWeight="400" sx={{ color: "#2F234F", opacity: ".5" }}>
+								<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="28px" fontWeight="400" sx={{ color: "#2F234F", opacity: ".5" ,}}>
 									{position}</Typography>
 							</Box>)
 						})}
@@ -227,7 +215,7 @@ function App(params) {
 					<Typography fontSize={{ xs: "", lg: "18px" }} fontFamily="open sans" lineHeight="32px" fontWeight="400" sx={{ mt: "8px", color: "rgba(8, 81, 85, .5)", width: 594, mx: "auto" }}>Subscribe with Email and loads of interesting news will be sent to you on a daily basis.</Typography>
 					<FormControl sx={{ display: "flex", flexDirection: "row", mt: "16px", justifyContent: "center", height: "65px", }} className='border-none'>
 						<Input placeholder="Your email here" disableUnderline sx={{ border: "1px white", pl: "24px", borderRadius: "20px 0 0 20px", height: "65px", width: { xs: "60%", lg: 414 }, backgroundColor: "white", fontSize: "16px" }} > </Input>
-						<Button variant='contained' color={'gerlach'} sx={{ borderRadius: "0 20px 20px 0", py: "20.5px", px: "52px", width: { xs: "60%", lg: 180 }, height: "65px", backgroundColor: "#085155", fontSize: "16px", color: "white",  ...btnhover }}>Subscribe</Button>
+						<Button variant='contained' color={'gerlach'} sx={{ borderRadius: "0 20px 20px 0", py: "20.5px", px: "52px", width: { xs: "60%", lg: 180 }, height: "65px", backgroundColor: "#085155", fontSize: "16px", color: "white", ...btnhover }}>Subscribe</Button>
 					</FormControl>
 				</Box>
 				<Box className='footer2' sx={{ backgroundColor: "#085155", pt: "60px" }}> f2
@@ -285,7 +273,7 @@ function App(params) {
 					</Box>
 				</Box>
 			</Box >
-		</ThemeProvider>
+		</ThemeProvider >
 	);
 }
 export default App;
